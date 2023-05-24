@@ -35,7 +35,6 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     LOGO
                 </div>
-                <div class="sidebar-brand-text mx-3">TMS</div>
             </a>
 
             <!-- Divider -->

@@ -96,8 +96,7 @@ class CategorController extends Controller
      */
     public function destroy($id)
     {
-        Howner::find($id)->delete();
-        Session::flash('Deleted', 'Category deleted successfully');
-        return response(['status' => true, 'message' => 'item deleted!']);
+        Cartegor::find($id)->delete();
+        return back()->with('deleted', 'Category deleted successfully');
     }
 }

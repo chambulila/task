@@ -30,12 +30,11 @@
                                                     href="{{ route('categor.edit', $ca->id) }}">Edit</a>
                                             </div>
                                             <div class="col-6">
-                                                <form action="#" method="POST">
+                                                <form action="{{ route('categor.destroy', $ca->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="button" onclick="onDeleteInfo()"
-                                                        class="btn btn-danger btn-sm" data-toggle="modal"
-                                                        data-target="#deleteModel">Delete</button>
+                                                    <button type="submit"
+                                                        class="btn btn-danger btn-sm">Delete</button>
                                                 </form>
                                             </div>
 
@@ -73,14 +72,21 @@
                         </script>
                     @endif
 
-                        <input type="hidden" name="id" id="id" value="">
+                    @if (Session::has('deleted'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>{{ Session('deleted') }}</strong>
+                    </div>
+
+                    <script>
+                        $(".alert").alert();
+                    </script>
+                @endif
                       
                     </div>
                 </div>
             </div>
         </div>
     @endsection
-
-    {{-- <script src="{{ asset('js/work/sweetalert2.js') }}"></script>
-    <script src="asset('js/jqueriii.min.js')"></script>
-    <script src="{{ asset('bootstrap-5.2.0-beta1-dist\js\bootstrap.min.js') }}"></script> --}}
